@@ -1,5 +1,6 @@
 package pro.vplaton;
 
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -103,8 +104,12 @@ public class Main {
                                 //System.out.println("no 2");
                             }
 
-                            File file = new File("src/pro/vplaton/manwah.wav");
-                            Sound.playSound(file.getAbsolutePath()).join();
+                            AudioListener audioListener = new AudioListener();
+                            try {
+                                audioListener.soundPlay();
+                            } catch (URISyntaxException e) {
+                                e.printStackTrace();
+                            }
                         }
                         Thread.sleep(2500); //1000 - 1 сек
                     } catch (InterruptedException ex) {
